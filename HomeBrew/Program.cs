@@ -9,7 +9,7 @@ namespace HomeBrew
             // Program start
 
             TitleScreen.Title();
-            TitleScreen.TitleMenu();
+            Menu.MainMenu();
 
             // Variables for selecting menu options
             string UserInput = Console.ReadLine();
@@ -33,25 +33,57 @@ namespace HomeBrew
                     Console.ReadLine();
                 }
                 // Homebrew tools
+
+                // Brix Converter
                 else if (UserInput == BrixSelect)
                 {
                     Console.Clear();
                     TitleScreen.Title();
-                    Console.WriteLine("Welcome to the homebrew tools.");
-                    Console.WriteLine("Brix to Specfic Gravity Converter");
-                    Console.WriteLine("---------------------------------");
+                    Menu.BrixConverterMenu();
+
+                    double BrixReading = Convert.ToDouble(Console.ReadLine());
+                    var brixConversion = new BrixConverter();
+                    string BrixToGravityReading = brixConversion.BrixToSpecficGravity(BrixReading).ToString("0.000");
+                    Console.WriteLine($"Your Brix reading of {BrixReading} is {BrixToGravityReading} specfic gravity.");
                     Console.WriteLine("Press enter to continue");
                     Console.ReadLine();
+
                 }
+
+                // ABC calculator
                 else if (UserInput == AbvSelect)
                 {
                     Console.Clear();
                     TitleScreen.Title();
-                    Console.WriteLine("Welcome to the homebew tools.");
-                    Console.WriteLine("ABV Calculator");
-                    Console.WriteLine("--------------");
-                    Console.WriteLine("Press enter to continue");
-                    Console.ReadLine();
+                    Menu.AbvMenu();
+                    string AbvUserInput = Console.ReadLine().ToLower();
+                    string SpecficGravityMeasurement = "1";
+                    string BrixMeasurement = "2";
+                    string ExitToMainMenu = "0";
+                    if (AbvUserInput == SpecficGravityMeasurement)
+                    {
+                        AbvCalculator.SpecficGravityAbv();
+                    }
+                    else if(AbvUserInput == BrixMeasurement)
+                    {
+                        AbvCalculator.BrixAbv();
+                    }
+                    else if(AbvUserInput == ExitToMainMenu)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        TitleScreen.Title();
+                        Console.WriteLine("Sorry invalid input");
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
+                    }
+                    Console.Clear();
+                    TitleScreen.Title();
+                    Menu.AbvMenu();
+                    AbvUserInput = Console.ReadLine();
                 }
 
                 // Invalid input
@@ -67,15 +99,7 @@ namespace HomeBrew
                 }
                 Console.Clear();
                 TitleScreen.Title();
-                TitleScreen.TitleMenu();
-                //Console.WriteLine("Would you like to start building a recipe or use a homebrew tool?");
-                //Console.WriteLine("--------------------------");
-                //Console.WriteLine("Buid a Recipe: 1");
-                //Console.WriteLine("Homebrew Tools:");
-                //Console.WriteLine("Brix to Specfic Gravity Converter: 2");
-                //Console.WriteLine("ABV Calculator: 3");
-                //Console.WriteLine("Exit: 0");
-                //Console.Write("Your input: ");
+                Menu.MainMenu();
                 UserInput = Console.ReadLine();
             }
 
