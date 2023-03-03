@@ -19,7 +19,7 @@ namespace HomeBrew
             string ExitProgram = "0";
             
 
-            // Master Loop While not exit execute this loop
+            // Master Loop - While not exit - execute this loop
             while(UserInput != ExitProgram)
             {
                 // Recipe 
@@ -60,6 +60,7 @@ namespace HomeBrew
                     string SpecficGravityMeasurement = "1";
                     string BrixMeasurement = "2";
                     string ExitToMainMenu = "0";
+
                     if (AbvUserInput == SpecficGravityMeasurement)
                     {
                         AbvCalculator.SpecficGravityAbv();
@@ -80,6 +81,7 @@ namespace HomeBrew
                         Console.WriteLine("Press enter to continue");
                         Console.ReadLine();
                     }
+
                     Console.Clear();
                     TitleScreen.Title();
                     Menu.AbvMenu();

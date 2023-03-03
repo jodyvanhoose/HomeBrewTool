@@ -18,7 +18,6 @@ namespace HomeBrew
             Console.WriteLine("--------------------------");
             Console.WriteLine("Buid a Recipe:     Press 1");
             Console.WriteLine("--------------------------");
-            // Console.WriteLine("Homebrew Tools:");
             Console.WriteLine("Brix to Specfic");
             Console.WriteLine("Gravity Converter: Press 2");
             Console.WriteLine("--------------------------");

@@ -20,6 +20,7 @@ namespace HomeBrew
         {
             Console.Clear();
             TitleScreen.Title();
+
             Console.Write("Enter your inital Brix reading: ");
             double InitalBrixReading = Convert.ToDouble(Console.ReadLine());
             var firstBrixReading = new BrixConverter();
@@ -40,6 +41,7 @@ namespace HomeBrew
         {
             Console.Clear();
             TitleScreen.Title();
+
             Console.Write("Enter your Original Gravity reading: ");
             double OriginalGravity = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter your Final Gravity reading: ");
@@ -47,7 +49,6 @@ namespace HomeBrew
             var abvCalc = new AbvCalculator();
             string ABV = abvCalc.CalculateABV(OriginalGravity, FinalGravity).ToString("0.0");
             Console.WriteLine($"Your brew's approximate alcohol: {ABV}%");
-
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
         }
