@@ -27,10 +27,34 @@ namespace HomeBrew
                 {
                     Console.Clear();
                     TitleScreen.Title();
-                    Console.WriteLine("Recipe Builder");
-                    Console.WriteLine("--------------");
-                    Console.WriteLine("Press enter to continue");
-                    Console.ReadLine();
+                    Menu.RecipeMenu();
+                    
+                    string BeerRecipe = "1";
+                    string MeadRecipe = "2";
+                    string RecipeExit = "0";
+                    string RecipeSelection = Console.ReadLine();
+
+                    if (RecipeSelection == BeerRecipe)
+                    {
+                        var myBeer = new BeerRecipe();
+                        myBeer.BuildBeerRecipe(myBeer);
+                    }
+                    else if (RecipeSelection == MeadRecipe)
+                    {
+                        var myMead = new MeadRecipe();
+                        myMead.BuildMeadRecipe(myMead);
+                    }
+                    else if(RecipeSelection == RecipeExit)
+                    {
+                        Console.Clear();
+                        TitleScreen.Title();
+                        Menu.MainMenu();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input");
+                    }
+
                 }
                 // Homebrew tools
 
@@ -61,31 +85,33 @@ namespace HomeBrew
                     string BrixMeasurement = "2";
                     string ExitToMainMenu = "0";
 
-                    if (AbvUserInput == SpecficGravityMeasurement)
+                    while (AbvUserInput != ExitToMainMenu)
                     {
-                        AbvCalculator.SpecficGravityAbv();
+                        if (AbvUserInput == SpecficGravityMeasurement)
+                        {
+                            AbvCalculator.SpecficGravityAbv();
+                            AbvUserInput = ExitToMainMenu;
+                        }
+                        else if (AbvUserInput == BrixMeasurement)
+                        {
+                            AbvCalculator.BrixAbv();
+                            AbvUserInput = ExitToMainMenu;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            TitleScreen.Title();
+                            Menu.AbvMenu();
+                            Console.WriteLine(" Sorry invalid input");
+                            Console.Write("Your input: ");
+                            AbvUserInput = Console.ReadLine().ToLower();
+                        }
                     }
-                    else if(AbvUserInput == BrixMeasurement)
-                    {
-                        AbvCalculator.BrixAbv();
-                    }
-                    else if(AbvUserInput == ExitToMainMenu)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        TitleScreen.Title();
-                        Console.WriteLine("Sorry invalid input");
-                        Console.WriteLine("Press enter to continue");
-                        Console.ReadLine();
-                    }
-
                     Console.Clear();
                     TitleScreen.Title();
-                    Menu.AbvMenu();
-                    AbvUserInput = Console.ReadLine();
+                    Menu.MainMenu();
+
+                    
                 }
 
                 // Invalid input

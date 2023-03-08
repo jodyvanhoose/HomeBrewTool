@@ -28,6 +28,21 @@ namespace HomeBrew
             Console.Write("Your input: ");
         }
 
+        public static void RecipeMenu()
+        {
+            Console.WriteLine("Recipe Builder");
+            Console.WriteLine("--------------");
+            Console.WriteLine("Menu options");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Beer Recipe:       Press 1");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Mead Recipe:       Press 2");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Exit:              Press 0");
+            Console.WriteLine("--------------------------");
+            Console.Write("Your input: ");
+        }
+
         public static void AbvMenu()
         {
             Console.WriteLine("Welcome to the homebew tools.");
@@ -38,6 +53,8 @@ namespace HomeBrew
             Console.WriteLine("Specfic Gravity  1");
             Console.WriteLine("------------------");
             Console.WriteLine("Brix:            2");
+            Console.WriteLine("------------------");
+            Console.WriteLine("Main Menu:       0");
             Console.WriteLine("------------------");
             Console.Write("Your input: ");
         }
