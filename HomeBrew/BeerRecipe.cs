@@ -22,7 +22,6 @@ namespace HomeBrew
         public string[] HopTypeArray;
         public decimal[] HopWeightArray;
         public int[] HopTimeArray;
-        public bool FlameOut = false;
 
 
 
@@ -42,14 +41,23 @@ namespace HomeBrew
             myBeer.BaseMaltWeight = Convert.ToDecimal(Console.ReadLine());
             Console.WriteLine("Are there any additional malts?");
             Console.Write("Enter y for yes...n for no: ");
-            string MoreMalt = Console.ReadLine().ToLower();
-            if (MoreMalt == "y")
+            myBeer.HasAdditionalMalt = Console.ReadLine().ToLower() == "y";
+            if (HasAdditionalMalt)
             {
-                myBeer.HasAdditionalMalt = true;
                 Console.Write("Enter additional malt: ");
                 myBeer.AdditonalMalt = Console.ReadLine();
                 Console.Write("Enter additional malt weight in pounds: ");
                 myBeer.AdditonalMaltWeight = Convert.ToDecimal(Console.ReadLine());
+            }
+            Console.WriteLine("Any other additional fermentables?");
+            Console.Write("Enter y for yes....n for no: ");
+            myBeer.HasAdditionalFermentable = (Console.ReadLine().ToLower() == "y");
+            if (HasAdditionalFermentable)
+            {
+                Console.Write("Enter any additional fermentables: ");
+                myBeer.AdditionalFermentable = Console.ReadLine();
+                Console.Write("Enter extra fermentable's weight in pounds: ");
+                myBeer.AdditionalFermentableWeight = Convert.ToDecimal(Console.ReadLine());
             }
             Console.Clear();
             TitleScreen.Title();
@@ -68,6 +76,8 @@ namespace HomeBrew
                     myBeer.SpecialtyGrainWeight = Convert.ToDecimal(Console.ReadLine());
                 }
             }
+            Console.Write("Enter batch size in gallons: ");
+            myBeer.BatchSize = Convert.ToDecimal(Console.ReadLine());
             Console.Write("Enter boil time in minutes: ");
             myBeer.BoilTime = Convert.ToInt32(Console.ReadLine());
 
@@ -89,10 +99,7 @@ namespace HomeBrew
                 HopWeightArray[i] = Convert.ToDecimal(Console.ReadLine());
                 Console.Write($"Enter number {i + 1} hop addition time: ");
                 HopTimeArray[i] = Convert.ToInt32(Console.ReadLine());
-                if (HopTimeArray[i] == 0)
-                {
-                    FlameOut = myBeer.IsFlameOut();
-                }
+                
             }
 
             Console.Clear();
@@ -111,29 +118,38 @@ namespace HomeBrew
             TitleScreen.Title();
             Console.WriteLine("Beer Recipe:");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Recipe name: {myBeer.RecipeName}");
+            Console.WriteLine($"Recipe name: {RecipeName}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Is Recipe extract: {myBeer.IsExtract}");
+            Console.WriteLine($"Is Recipe extract: {IsExtract}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Base malt: {myBeer.BaseMalt}");
+            Console.WriteLine($"Base malt: {BaseMalt}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Base malt weight: {myBeer.BaseMaltWeight}lb");
+            Console.WriteLine($"Base malt weight: {BaseMaltWeight}lb");
             Console.WriteLine("-----------------------------------------------------------");
             if (HasAdditionalMalt)
             {
-                Console.WriteLine($"Additional malt: {myBeer.AdditonalMalt}");
+                Console.WriteLine($"Additional malt: {AdditonalMalt}");
                 Console.WriteLine("-----------------------------------------------------------");
-                Console.WriteLine($"Additional malt: {myBeer.AdditonalMaltWeight}lb");
+                Console.WriteLine($"Additional malt: {AdditonalMaltWeight}lb");
+                Console.WriteLine("-----------------------------------------------------------");
+            }
+            if (HasAdditionalFermentable)
+            {
+                Console.WriteLine($"Additional fermentable: {AdditionalFermentable}");
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine($"Additional fermentable weight: {AdditionalFermentableWeight} pounds");
                 Console.WriteLine("-----------------------------------------------------------");
             }
             if (HasSpecialtyGrain)
             {
-                Console.WriteLine($"Specialty grain: {myBeer.SpecialtyGrain}");
+                Console.WriteLine($"Specialty grain: {SpecialtyGrain}");
                 Console.WriteLine("-----------------------------------------------------------");
-                Console.WriteLine($"Specialty grain weight: {myBeer.SpecialtyGrainWeight}oz");
+                Console.WriteLine($"Specialty grain weight: {SpecialtyGrainWeight}oz");
                 Console.WriteLine("-----------------------------------------------------------");
             }
-            Console.WriteLine($"Boil Time: {myBeer.BoilTime} minutes");
+            Console.WriteLine($"Batch size: {BatchSize} gallons");
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine($"Boil Time: {BoilTime} minutes");
             Console.WriteLine("-----------------------------------------------------------");
 
             if (HopAdditions > 0)
@@ -142,30 +158,25 @@ namespace HomeBrew
                 {
                     if (HopTimeArray[i] != 0)
                     {
-                        Console.WriteLine($"Hop Addition: {myBeer.HopWeightArray[i]} oz {myBeer.HopTypeArray[i]} for {myBeer.HopTimeArray[i]} minutes");
+                        Console.WriteLine($"Hop Addition: {HopWeightArray[i]} oz {HopTypeArray[i]} for {HopTimeArray[i]} minutes");
                         Console.WriteLine("-----------------------------------------------------------");
                     }
                     else
                     {
-                        Console.WriteLine($"Hop Addition: {myBeer.HopWeightArray[i]} oz {myBeer.HopTypeArray[i]} at flame out");
+                        Console.WriteLine($"Hop Addition: {HopWeightArray[i]} oz {HopTypeArray[i]} at flame out");
                         Console.WriteLine("-----------------------------------------------------------");
                     }
                 }
             }
-            Console.WriteLine($"Yeast: {myBeer.YeastType}");
+            Console.WriteLine($"Yeast: {YeastType}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Additional notes: {myBeer.Notes}");
+            Console.WriteLine($"Additional notes: {Notes}");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
 
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
-        }
-
-        public bool IsFlameOut()
-        {
-             return true;
         }
     }
 }

@@ -9,10 +9,11 @@ namespace HomeBrew
     public class Recipe
     {
         public string RecipeName;
-        public int BatchSize = 0;
+        public decimal? BatchSize = 0;
         public string YeastType;
         public string Notes;
+        public bool HasAdditionalFermentable;
         public string AdditionalFermentable;
-        public int AdditionalFermentableWeight;
+        public decimal? AdditionalFermentableWeight;
     }
 }

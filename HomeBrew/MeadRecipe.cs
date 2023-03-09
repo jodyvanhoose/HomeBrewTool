@@ -9,7 +9,7 @@ namespace HomeBrew
     public class MeadRecipe : Recipe
     {
         public string HoneyType;
-        public int HoneyPounds;
+        public decimal? HoneyPounds;
         public string Additions;
         public bool IsBackSweetened = false;
         public string BackSweetenedType;
@@ -24,21 +24,24 @@ namespace HomeBrew
             Console.Write("Enter Type of honey: ");
             myMead.HoneyType = Console.ReadLine();
             Console.Write("Enter amount of honey in pounds: ");
-            myMead.HoneyPounds = Convert.ToInt32(Console.ReadLine());
+            myMead.HoneyPounds = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Any other additional fermentables?");
+            Console.Write("Enter y for yes....n for no: ");
+            myMead.HasAdditionalFermentable = (Console.ReadLine().ToLower() == "y");
+            if (HasAdditionalFermentable)
+            {
+                Console.Write("Enter any additional fermentables: ");
+                myMead.AdditionalFermentable = Console.ReadLine();
+                Console.Write("Enter extra fermentable's weight in pounds: ");
+                myMead.AdditionalFermentableWeight = Convert.ToDecimal(Console.ReadLine());
+            }
+            
             Console.Write("Enter batch size in gallons: ");
-            try
-            {
-                myMead.BatchSize = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception)
-            {
-
-                throw new FormatException("You must enter a valid number");
-            }
+            myMead.BatchSize = Convert.ToDecimal(Console.ReadLine());
             Console.Write("Enter yeast: ");
             myMead.YeastType = Console.ReadLine();
             Console.WriteLine("Are you planning on BackSweetening?");
-            Console.Write("Enter y for yes.....n for no:");
+            Console.Write("Enter y for yes.....n for no: ");
             string Sweetened = Console.ReadLine().ToLower();
             if (Sweetened == "y")
             {
@@ -64,7 +67,7 @@ namespace HomeBrew
             }
             else
             {
-                Console.WriteLine($"My additions are: {myMead.Additions}");
+                Console.WriteLine($"My additions are: {Additions}");
             }
         }
 
@@ -74,21 +77,28 @@ namespace HomeBrew
             TitleScreen.Title();
             Console.WriteLine("Mead Recipe:");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Recipe name: {myMead.RecipeName}");
+            Console.WriteLine($"Recipe name: {RecipeName}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Honey type: {myMead.HoneyType}");
+            Console.WriteLine($"Honey type: {HoneyType}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Honey weight: {myMead.HoneyPounds} pounds");
+            Console.WriteLine($"Honey weight: {HoneyPounds} pounds");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Recipe size: {myMead.BatchSize} gallons");
+            if (myMead.HasAdditionalFermentable)
+            {
+                Console.WriteLine($"Additional fermentable: {AdditionalFermentable}");
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine($"Additional fermentable weight: {AdditionalFermentableWeight} pounds");
+                Console.WriteLine("-----------------------------------------------------------");
+            }
+            Console.WriteLine($"Recipe size: {BatchSize} gallons");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Yeast: {myMead.YeastType}");
+            Console.WriteLine($"Yeast: {YeastType}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"BackSweetend: {myMead.BackSweetenedType}");
+            Console.WriteLine($"BackSweetend: {BackSweetenedType}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Other Additions: {myMead.Additions}");
+            Console.WriteLine($"Other Additions: {Additions}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Additional notes: {myMead.Notes}");
+            Console.WriteLine($"Additional notes: {Notes}");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
