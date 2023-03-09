@@ -38,11 +38,13 @@ namespace HomeBrew
                     {
                         var myBeer = new BeerRecipe();
                         myBeer.BuildBeerRecipe(myBeer);
+                        myBeer.DisplayBeerRecipe(myBeer);
                     }
                     else if (RecipeSelection == MeadRecipe)
                     {
                         var myMead = new MeadRecipe();
                         myMead.BuildMeadRecipe(myMead);
+                        myMead.DisplayMeadRecipe(myMead);
                     }
                     else if(RecipeSelection == RecipeExit)
                     {

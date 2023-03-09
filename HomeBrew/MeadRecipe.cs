@@ -21,7 +21,7 @@ namespace HomeBrew
             TitleScreen.Title();
             Console.Write("Enter recipe name: ");
             myMead.RecipeName = Console.ReadLine();
-            Console.Write("Enter Type of honey : ");
+            Console.Write("Enter Type of honey: ");
             myMead.HoneyType = Console.ReadLine();
             Console.Write("Enter amount of honey in pounds: ");
             myMead.HoneyPounds = Convert.ToInt32(Console.ReadLine());
@@ -55,8 +55,8 @@ namespace HomeBrew
             }
             Console.Write("Enter any additions: ");
             myMead.Additions = Console.ReadLine();
-            Console.Write("Enter recipe description: ");
-            myMead.Description = Console.ReadLine();
+            Console.Write("Enter any additional notes: ");
+            myMead.Notes = Console.ReadLine();
 
             if (myMead.Additions == "")
             {
@@ -66,7 +66,10 @@ namespace HomeBrew
             {
                 Console.WriteLine($"My additions are: {myMead.Additions}");
             }
+        }
 
+        public void DisplayMeadRecipe(MeadRecipe myMead)
+        {
             Console.Clear();
             TitleScreen.Title();
             Console.WriteLine("Mead Recipe:");
@@ -85,7 +88,7 @@ namespace HomeBrew
             Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine($"Other Additions: {myMead.Additions}");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Recipe description: {myMead.Description}");
+            Console.WriteLine($"Additional notes: {myMead.Notes}");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();

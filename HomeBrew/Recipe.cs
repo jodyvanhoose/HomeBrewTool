@@ -9,9 +9,10 @@ namespace HomeBrew
     public class Recipe
     {
         public string RecipeName;
-        public string FermentableType;
         public int BatchSize = 0;
         public string YeastType;
-        public string Description;
+        public string Notes;
+        public string AdditionalFermentable;
+        public int AdditionalFermentableWeight;
     }
 }
