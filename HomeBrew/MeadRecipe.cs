@@ -9,7 +9,7 @@ namespace HomeBrew
     public class MeadRecipe : Recipe
     {
         public string HoneyType;
-        public decimal? HoneyPounds;
+        public decimal HoneyPounds;
         public string Additions;
         public bool IsBackSweetened = false;
         public string BackSweetenedType;
@@ -24,7 +24,9 @@ namespace HomeBrew
             Console.Write("Enter Type of honey: ");
             myMead.HoneyType = Console.ReadLine();
             Console.Write("Enter amount of honey in pounds: ");
-            myMead.HoneyPounds = Convert.ToDecimal(Console.ReadLine());
+
+            myMead.HoneyPounds = ParseToDecimal(myMead.HoneyPounds);
+
             Console.WriteLine("Any other additional fermentables?");
             Console.Write("Enter y for yes....n for no: ");
             myMead.HasAdditionalFermentable = (Console.ReadLine().ToLower() == "y");
@@ -33,11 +35,15 @@ namespace HomeBrew
                 Console.Write("Enter any additional fermentables: ");
                 myMead.AdditionalFermentable = Console.ReadLine();
                 Console.Write("Enter extra fermentable's weight in pounds: ");
-                myMead.AdditionalFermentableWeight = Convert.ToDecimal(Console.ReadLine());
+
+                myMead.AdditionalFermentableWeight = ParseToDecimal(myMead.AdditionalFermentableWeight);
+
             }
             
             Console.Write("Enter batch size in gallons: ");
-            myMead.BatchSize = Convert.ToDecimal(Console.ReadLine());
+
+            myMead.BatchSize = ParseToDecimal(myMead.BatchSize);
+
             Console.Write("Enter yeast: ");
             myMead.YeastType = Console.ReadLine();
             Console.WriteLine("Are you planning on BackSweetening?");

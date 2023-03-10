@@ -9,11 +9,40 @@ namespace HomeBrew
     public class Recipe
     {
         public string RecipeName;
-        public decimal? BatchSize = 0;
+        public decimal BatchSize = 0;
         public string YeastType;
         public string Notes;
         public bool HasAdditionalFermentable;
         public string AdditionalFermentable;
-        public decimal? AdditionalFermentableWeight;
+        public decimal AdditionalFermentableWeight;
+
+        public decimal ParseToDecimal(decimal someInput)
+        {
+            string input = Console.ReadLine();
+
+            if (decimal.TryParse(input, out decimal output))
+            {
+                return output;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public int ParseToInt(decimal someInput)
+        {
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int output))
+            {
+                return output;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
+
 }
