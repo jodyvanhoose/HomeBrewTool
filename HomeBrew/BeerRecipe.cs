@@ -19,9 +19,12 @@ namespace HomeBrew
         public decimal SpecialtyGrainWeight;
         public int BoilTime;
         public int HopAdditions;
-        public string[] HopTypeArray;
-        public decimal[] HopWeightArray;
-        public int[] HopTimeArray;
+        //public string[] HopTypeArray;
+        //public decimal[] HopWeightArray;
+        //public int[] HopTimeArray;
+        public List<string> HopType = new List<string>();
+        public List<decimal> HopTime = new List<decimal>();
+        public List<decimal> HopWeight = new List<decimal>();
 
 
 
@@ -95,40 +98,25 @@ namespace HomeBrew
             TitleScreen.Title();
 
             Console.Write("How many hop additons: ");
-
-            myBeer.HopAdditions = ParseToInt(myBeer.HopAdditions);
-
-            myBeer.HopTypeArray = new string[myBeer.HopAdditions];
-            myBeer.HopWeightArray = new decimal[myBeer.HopAdditions];
-            myBeer.HopTimeArray = new int[myBeer.HopAdditions];
+            string input;
+            //myBeer.HopAdditions = ParseToInt(myBeer.HopAdditions);
+            input = Console.ReadLine();
+            myBeer.HopAdditions = int.TryParse(input, out int HopOutput) ? HopOutput : 0;
 
             for (int i = 0; i < myBeer.HopAdditions; i++)
             {
+                
                 Console.Write($"Enter number {i + 1} hop addition type: ");
-                HopTypeArray[i] = Console.ReadLine();
-                Console.Write($"Enter number {i + 1} hop's weight in ounces: ");
-                string input = Console.ReadLine();
+                input = Console.ReadLine();
+                myBeer.HopType.Add(input);
 
-                if (decimal.TryParse(input, out decimal output))
-                {
-                    HopWeightArray[i] = output;
-                }
-                else
-                {
-                    HopWeightArray[i] = 0;
-                }
+                Console.Write($"Enter number {i + 1} hop's weight in ounces: ");
+                input = Console.ReadLine();
+                myBeer.HopWeight.Add(decimal.TryParse(input, out decimal output) ? output : 0);
 
                 Console.Write($"Enter number {i + 1} hop addition time: ");
                 input = Console.ReadLine();
-
-                if (int.TryParse(input, out int timeOutput))
-                {
-                    HopTimeArray[i] = timeOutput;
-                }
-                else
-                {
-                    HopTimeArray[i] = 0;
-                }
+                myBeer.HopTime.Add(decimal.TryParse(input, out output) ? output : 0);
             }
 
             Console.Clear();
@@ -183,16 +171,16 @@ namespace HomeBrew
 
             if (HopAdditions > 0)
             {
-                for (int i = 0; i < HopTypeArray.Length; i++)
+                for (int i = 0; i < HopType.Count; i++)
                 {
-                    if (HopTimeArray[i] != 0)
+                    if (HopTime[i] != 0)
                     {
-                        Console.WriteLine($"Hop Addition: {HopWeightArray[i]} oz {HopTypeArray[i]} for {HopTimeArray[i]} minutes");
+                        Console.WriteLine($"Hop Addition: {HopWeight[i]} oz {HopType[i]} for {HopTime[i]} minutes");
                         Console.WriteLine("-----------------------------------------------------------");
                     }
                     else
                     {
-                        Console.WriteLine($"Hop Addition: {HopWeightArray[i]} oz {HopTypeArray[i]} at flame out");
+                        Console.WriteLine($"Hop Addition: {HopWeight[i]} oz {HopType[i]} at flame out");
                         Console.WriteLine("-----------------------------------------------------------");
                     }
                 }
