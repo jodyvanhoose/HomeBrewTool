@@ -23,6 +23,9 @@ namespace HomeBrew
             Console.WriteLine("--------------------------");
             Console.WriteLine("ABV Calculator:    Press 3");
             Console.WriteLine("--------------------------");
+            Console.WriteLine("Determine Specfic Gravity");
+            Console.WriteLine("With Malt Extract: Press 4");
+            Console.WriteLine("--------------------------");
             Console.WriteLine("Exit:              Press 0");
             Console.WriteLine("--------------------------");
             Console.Write("Your input: ");

@@ -16,6 +16,7 @@ namespace HomeBrew
             string RecipeSelect = "1";
             string BrixSelect = "2";
             string AbvSelect = "3";
+            string GravitySelect = "4";
             string ExitProgram = "0";
             
 
@@ -74,6 +75,12 @@ namespace HomeBrew
                     Console.WriteLine("Press enter to continue");
                     Console.ReadLine();
 
+                }
+                else if (UserInput == GravitySelect)
+                {
+                    Console.Clear();
+                    TitleScreen.Title();
+                    AbvCalculator.GetSpecficGravity();
                 }
 
                 // ABC calculator

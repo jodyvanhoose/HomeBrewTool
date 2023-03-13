@@ -52,5 +52,48 @@ namespace HomeBrew
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
         }
+
+        
+        public static decimal DetermineSpecficGravityFormula(decimal lmePounds, decimal dmePounds, int gallons)
+        {
+            decimal TotalPoints;
+            decimal TotalLmePoints;
+            decimal TotalDmePoints;
+            decimal LmePoints = 36;
+            decimal DmePoints = 44;
+            
+            TotalLmePoints = (LmePoints * lmePounds) / gallons;
+            TotalDmePoints = (DmePoints * dmePounds) / gallons;
+            TotalPoints = TotalLmePoints + TotalDmePoints;
+
+            return TotalPoints / 1000.0m + 1;
+        }
+
+        // Calculate specfic gravity from malt extract
+        public static void GetSpecficGravity()
+        {
+            decimal LmePounds;
+            decimal DmePounds;
+            int Gallons;
+            string SpecficGravity;
+
+            Console.Write("Enter liquid malt extract weight in pounds: ");
+            string input = Console.ReadLine();
+            LmePounds = decimal.TryParse(input, out decimal output) ? output : 0;
+
+            Console.Write("Enter dried malt extract weight in pounds: ");
+            input = Console.ReadLine();
+            DmePounds = decimal.TryParse(input, out output) ? output : 0;
+
+            Console.Write("Enter size of brew in gallons: ");
+            input = Console.ReadLine();
+            Gallons = int.TryParse(input, out int intOutput) ? intOutput : 0;
+
+            SpecficGravity = DetermineSpecficGravityFormula(LmePounds, DmePounds, Gallons).ToString("0.000");
+            Console.WriteLine($"Your estimated specfic gravity is {SpecficGravity}");
+
+            Console.WriteLine("Press enter to continue");
+            Console.ReadLine();
+        }
     }
 }

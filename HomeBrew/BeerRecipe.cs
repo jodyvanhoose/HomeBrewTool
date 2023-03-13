@@ -40,6 +40,7 @@ namespace HomeBrew
             myBeer.BaseMalt = Console.ReadLine();
 
             Console.Write("Enter base malt weight in pounds: ");
+            
             myBeer.BaseMaltWeight = ParseToDecimal(myBeer.BaseMaltWeight);
 
             Console.WriteLine("Are there any additional malts?");
@@ -90,26 +91,12 @@ namespace HomeBrew
 
             myBeer.BoilTime = ParseToInt(myBeer.BoilTime);
 
-            //string input = Console.ReadLine();
-
-            //if (int.TryParse(input, out int boilOutput))
-            //{
-            //    myBeer.BoilTime = boilOutput;
-            //}
-            //else
-            //{
-            //    myBeer.BoilTime = 0;
-            //}
-
-
             Console.Clear();
             TitleScreen.Title();
 
             Console.Write("How many hop additons: ");
 
             myBeer.HopAdditions = ParseToInt(myBeer.HopAdditions);
-
-            //myBeer.HopAdditions = Convert.ToInt32(Console.ReadLine());
 
             myBeer.HopTypeArray = new string[myBeer.HopAdditions];
             myBeer.HopWeightArray = new decimal[myBeer.HopAdditions];
