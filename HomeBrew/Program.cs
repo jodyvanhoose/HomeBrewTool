@@ -80,7 +80,7 @@ namespace HomeBrew
                 {
                     Console.Clear();
                     TitleScreen.Title();
-                    AbvCalculator.GetSpecficGravity();
+                    HomeBrewTool.GetSpecficGravityFromExtract();
                 }
 
                 // ABC calculator
@@ -98,12 +98,12 @@ namespace HomeBrew
                     {
                         if (AbvUserInput == SpecficGravityMeasurement)
                         {
-                            AbvCalculator.SpecficGravityAbv();
+                            HomeBrewTool.SpecficGravityAbv();
                             AbvUserInput = ExitToMainMenu;
                         }
                         else if (AbvUserInput == BrixMeasurement)
                         {
-                            AbvCalculator.BrixAbv();
+                            HomeBrewTool.BrixAbv();
                             AbvUserInput = ExitToMainMenu;
                         }
                         else

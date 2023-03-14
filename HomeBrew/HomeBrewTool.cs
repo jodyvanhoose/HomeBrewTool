@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeBrew
 {
-    public class AbvCalculator
+    public class HomeBrewTool
     {
         public double CalculateABV(double og, double fg)
         {
@@ -29,7 +29,7 @@ namespace HomeBrew
             double FinalBrixReading = Convert.ToDouble(Console.ReadLine());
             var secondBrixReading = new BrixConverter();
             double FinalGravity = secondBrixReading.BrixToSpecficGravity(FinalBrixReading);
-            var abvCalc = new AbvCalculator();
+            var abvCalc = new HomeBrewTool();
             string ABV = abvCalc.CalculateABV(OriginalGravity, FinalGravity).ToString("0.0");
             Console.WriteLine($"Your brew's approximate alcohol: {ABV}%");
             Console.WriteLine("Press enter to continue");
@@ -46,7 +46,7 @@ namespace HomeBrew
             double OriginalGravity = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter your Final Gravity reading: ");
             double FinalGravity = Convert.ToDouble(Console.ReadLine());
-            var abvCalc = new AbvCalculator();
+            var abvCalc = new HomeBrewTool();
             string ABV = abvCalc.CalculateABV(OriginalGravity, FinalGravity).ToString("0.0");
             Console.WriteLine($"Your brew's approximate alcohol: {ABV}%");
             Console.WriteLine("Press enter to continue");
@@ -54,7 +54,7 @@ namespace HomeBrew
         }
 
         
-        public static decimal DetermineSpecficGravityFormula(decimal lmePounds, decimal dmePounds, int gallons)
+        public decimal SpecficGravityFromExtractFormula(decimal lmePounds, decimal dmePounds, int gallons)
         {
             decimal TotalPoints;
             decimal TotalLmePoints;
@@ -70,7 +70,7 @@ namespace HomeBrew
         }
 
         // Calculate specfic gravity from malt extract
-        public static void GetSpecficGravity()
+        public static void GetSpecficGravityFromExtract()
         {
             decimal LmePounds;
             decimal DmePounds;
@@ -89,7 +89,8 @@ namespace HomeBrew
             input = Console.ReadLine();
             Gallons = int.TryParse(input, out int intOutput) ? intOutput : 0;
 
-            SpecficGravity = DetermineSpecficGravityFormula(LmePounds, DmePounds, Gallons).ToString("0.000");
+            var hbTool = new HomeBrewTool();
+            SpecficGravity = hbTool.SpecficGravityFromExtractFormula(LmePounds, DmePounds, Gallons).ToString("0.000");
             Console.WriteLine($"Your estimated specfic gravity is {SpecficGravity}");
 
             Console.WriteLine("Press enter to continue");
