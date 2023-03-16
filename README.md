@@ -3,14 +3,20 @@
 ### Check out my <a href="https://www.linkedin.com/in/jody-vanhoose/" target="_blank">LinkedIn</a>
 ### Portfolio website: <a href="https://www.jodyvanhoose.com" target="_blank">www.jodyvanhoose.com</a>
 
+___
 ## About
-### Pollen count web application
+### Home brew tools & recipe builder 
 The homebrew tool is a C# console application that can help build home brew recipes for beer and mead. It also can calculate ABV(alcohol by volume), convert Brix to Specfic Gravity, and determine Specfic Gravity from amount and type of malt extract. This app was developed for the software development track of the boot camp <a href="http://codekentucky.org/" target="_blank">Code Kentucky</a> in which I am enrolled.
 
-### Screenshot
+### Screenshots
 
 ![](./images/homebrew_title_screenshot.png)
 ![](./images/homebrew_recipe_display_screenshot.png)
+
+### Instructions
+* Clone Repository: Using the green 'Code' button above clone the repo to your local machine
+* Open the file HomeBrewApp.sln in Visual Studio (or your preferred IDE)
+* Press F5 or Run Debug to begin application
 ___
 ### Key Features
 * Easy to navigate UI
