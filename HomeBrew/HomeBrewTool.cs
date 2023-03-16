@@ -23,14 +23,19 @@ namespace HomeBrew
 
             Console.Write("Enter your inital Brix reading: ");
             double InitalBrixReading = Convert.ToDouble(Console.ReadLine());
+
             var firstBrixReading = new BrixConverter();
+
             double OriginalGravity = firstBrixReading.BrixToSpecficGravity(InitalBrixReading);
+
             Console.Write("Enter your Final Brix reading: ");
             double FinalBrixReading = Convert.ToDouble(Console.ReadLine());
-            var secondBrixReading = new BrixConverter();
-            double FinalGravity = secondBrixReading.BrixToSpecficGravity(FinalBrixReading);
+
+            double FinalGravity = firstBrixReading.BrixToSpecficGravity(FinalBrixReading);
             var abvCalc = new HomeBrewTool();
+
             string ABV = abvCalc.CalculateABV(OriginalGravity, FinalGravity).ToString("0.0");
+
             Console.WriteLine($"Your brew's approximate alcohol: {ABV}%");
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
@@ -44,16 +49,20 @@ namespace HomeBrew
 
             Console.Write("Enter your Original Gravity reading: ");
             double OriginalGravity = Convert.ToDouble(Console.ReadLine());
+
             Console.Write("Enter your Final Gravity reading: ");
             double FinalGravity = Convert.ToDouble(Console.ReadLine());
+
             var abvCalc = new HomeBrewTool();
+
             string ABV = abvCalc.CalculateABV(OriginalGravity, FinalGravity).ToString("0.0");
+
             Console.WriteLine($"Your brew's approximate alcohol: {ABV}%");
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
         }
 
-        
+        // Formula to calculate specfic gravity from extract ..... used in GetSpecficGravityFromExtract()
         public decimal SpecficGravityFromExtractFormula(decimal lmePounds, decimal dmePounds, int gallons)
         {
             decimal TotalPoints;
@@ -94,7 +103,7 @@ namespace HomeBrew
             Console.WriteLine($"Your estimated specfic gravity is {SpecficGravity}");
 
             Console.WriteLine("Press enter to continue");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

@@ -131,6 +131,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Spectre.Console": {
+              "target": "Package",
+              "version": "[0.46.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

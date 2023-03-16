@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spectre.Console;
 
 namespace HomeBrew
 {
@@ -11,39 +12,36 @@ namespace HomeBrew
         public static void MainMenu()
         {
             Console.WriteLine("Welcome to the Pawtucket Homebrew Tool!");
-            Console.WriteLine("Would you like to start building a recipe or use a homebrew tool?");
-            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Menu options");
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Buid a Recipe:     Press 1");
-            Console.WriteLine("--------------------------");
+            AnsiConsole.MarkupLine("[olive]-------------------------------[/]");
+            AnsiConsole.MarkupLine("Buid a Recipe:          Press [green]1[/]");
+            AnsiConsole.MarkupLine("[olive]-------------------------------[/]");
             Console.WriteLine("Brix to Specfic");
-            Console.WriteLine("Gravity Converter: Press 2");
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("ABV Calculator:    Press 3");
-            Console.WriteLine("--------------------------");
+            AnsiConsole.MarkupLine("Gravity Converter:      Press [green]2[/]");
+            AnsiConsole.MarkupLine("[olive]-------------------------------[/]");
+            AnsiConsole.MarkupLine("ABV Calculator:         Press [green]3[/]");
+            AnsiConsole.MarkupLine("[olive]-------------------------------[/]");
             Console.WriteLine("Determine Specfic Gravity");
-            Console.WriteLine("With Malt Extract: Press 4");
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Exit:              Press 0");
-            Console.WriteLine("--------------------------");
-            Console.Write("Your input: ");
+            AnsiConsole.MarkupLine("With Malt Extract:      Press [green]4[/]");
+            AnsiConsole.MarkupLine("[olive]-------------------------------[/]");
+            AnsiConsole.MarkupLine("Exit:                   Press [green]0[/]");
+            AnsiConsole.MarkupLine("[olive]-------------------------------[/]");
+            
         }
 
         public static void RecipeMenu()
         {
             Console.WriteLine("Recipe Builder");
-            Console.WriteLine("--------------");
+            AnsiConsole.MarkupLine("[olive]--------------[/]");
             Console.WriteLine("Menu options");
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Beer Recipe:       Press 1");
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Mead Recipe:       Press 2");
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Exit:              Press 0");
-            Console.WriteLine("--------------------------");
-            Console.Write("Your input: ");
+            AnsiConsole.MarkupLine("[olive]--------------------------[/]");
+            AnsiConsole.MarkupLine("Beer Recipe:       Press [green]1[/]");
+            AnsiConsole.MarkupLine("[olive]--------------------------[/]");
+            AnsiConsole.MarkupLine("Mead Recipe:       Press [green]2[/]");
+            AnsiConsole.MarkupLine("[olive]--------------------------[/]");
+            AnsiConsole.MarkupLine("Exit:              Press [green]0[/]");
+            AnsiConsole.MarkupLine("[olive]--------------------------[/]");
         }
 
         public static void AbvMenu()
@@ -52,21 +50,20 @@ namespace HomeBrew
             Console.WriteLine("ABV Calculator");
             Console.WriteLine();
             Console.WriteLine("Please choose your choice of measurement");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine("Specfic Gravity  1");
-            Console.WriteLine("------------------");
-            Console.WriteLine("Brix:            2");
-            Console.WriteLine("------------------");
-            Console.WriteLine("Main Menu:       0");
-            Console.WriteLine("------------------");
-            Console.Write("Your input: ");
+            AnsiConsole.MarkupLine("[olive]----------------------------------------[/]");
+            AnsiConsole.MarkupLine("Specfic Gravity: [green]1[/]");
+            AnsiConsole.MarkupLine("[olive]------------------[/]");
+            AnsiConsole.MarkupLine("Brix:            [green]2[/]");
+            AnsiConsole.MarkupLine("[olive]------------------[/]");
+            AnsiConsole.MarkupLine("Main Menu:       [green]0[/]");
+            AnsiConsole.MarkupLine("[olive]------------------[/]");
         }
 
         public static void BrixConverterMenu()
         {
             Console.WriteLine("Welcome to the homebrew tools.");
             Console.WriteLine("Brix to Specfic Gravity Converter");
-            Console.WriteLine("---------------------------------");
+            AnsiConsole.MarkupLine("[olive]---------------------------------[/]");
             Console.Write("Enter your Brix reading: ");
         }
     }

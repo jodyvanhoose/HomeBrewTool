@@ -14,3 +14,5 @@ C:\Users\jody_\source\repos\HomeBrewApp\HomeBrew\obj\Debug\net5.0\HomeBrew.dll
 C:\Users\jody_\source\repos\HomeBrewApp\HomeBrew\obj\Debug\net5.0\ref\HomeBrew.dll
 C:\Users\jody_\source\repos\HomeBrewApp\HomeBrew\obj\Debug\net5.0\HomeBrew.pdb
 C:\Users\jody_\source\repos\HomeBrewApp\HomeBrew\obj\Debug\net5.0\HomeBrew.genruntimeconfig.cache
+C:\Users\jody_\source\repos\HomeBrewApp\HomeBrew\bin\Debug\net5.0\Spectre.Console.dll
+C:\Users\jody_\source\repos\HomeBrewApp\HomeBrew\obj\Debug\net5.0\HomeBrew.csproj.CopyComplete

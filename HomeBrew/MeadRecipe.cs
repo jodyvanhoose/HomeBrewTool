@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spectre.Console;
 
 namespace HomeBrew
 {
@@ -19,40 +20,45 @@ namespace HomeBrew
         {
             Console.Clear();
             TitleScreen.Title();
-            Console.Write("Enter recipe name: ");
+
+            Console.Write("Enter mead style: ");
             myMead.RecipeName = Console.ReadLine();
+
+            // Adding honey type & weight
             Console.Write("Enter Type of honey: ");
             myMead.HoneyType = Console.ReadLine();
             Console.Write("Enter amount of honey in pounds: ");
-
             myMead.HoneyPounds = ParseToDecimal(myMead.HoneyPounds);
 
+            // Adding any additional fermentables
             Console.WriteLine("Any other additional fermentables?");
             Console.Write("Enter y for yes....n for no: ");
             myMead.HasAdditionalFermentable = (Console.ReadLine().ToLower() == "y");
+
             if (HasAdditionalFermentable)
             {
                 Console.Write("Enter any additional fermentables: ");
                 myMead.AdditionalFermentable = Console.ReadLine();
                 Console.Write("Enter extra fermentable's weight in pounds: ");
-
                 myMead.AdditionalFermentableWeight = ParseToDecimal(myMead.AdditionalFermentableWeight);
-
             }
             
             Console.Write("Enter batch size in gallons: ");
-
             myMead.BatchSize = ParseToDecimal(myMead.BatchSize);
 
             Console.Write("Enter yeast: ");
             myMead.YeastType = Console.ReadLine();
+
+            // Adding back sweetening type
             Console.WriteLine("Are you planning on BackSweetening?");
             Console.Write("Enter y for yes.....n for no: ");
             string Sweetened = Console.ReadLine().ToLower();
+
             if (Sweetened == "y")
             {
                 myMead.IsBackSweetened = true;
             }
+
             if (IsBackSweetened)
             {
                 Console.Write("Enter BackSweetening type: ");
@@ -62,55 +68,63 @@ namespace HomeBrew
             {
                 myMead.BackSweetenedType = "No";
             }
-            Console.Write("Enter any additions: ");
+
+            // Adding any other additions
+            Console.Write("Enter any other additions: ");
             myMead.Additions = Console.ReadLine();
+
+            // Adding additional notes
             Console.Write("Enter any additional notes: ");
             myMead.Notes = Console.ReadLine();
-
-            if (myMead.Additions == "")
-            {
-                Console.WriteLine("No additions");
-            }
-            else
-            {
-                Console.WriteLine($"My additions are: {Additions}");
-            }
         }
 
+        // Displaying Mead Recipe
         public void DisplayMeadRecipe(MeadRecipe myMead)
         {
             Console.Clear();
-            TitleScreen.Title();
-            Console.WriteLine("Mead Recipe:");
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Recipe name: {RecipeName}");
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Honey type: {HoneyType}");
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Honey weight: {HoneyPounds} pounds");
-            Console.WriteLine("-----------------------------------------------------------");
+
+            Console.WriteLine($"Mead style: {RecipeName}");
+            AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
+            Console.WriteLine($"Honey type: {HoneyPounds}lb of {HoneyType}");
+            AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
             if (myMead.HasAdditionalFermentable)
             {
-                Console.WriteLine($"Additional fermentable: {AdditionalFermentable}");
-                Console.WriteLine("-----------------------------------------------------------");
-                Console.WriteLine($"Additional fermentable weight: {AdditionalFermentableWeight} pounds");
-                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine($"Additional fermentable: {AdditionalFermentableWeight}lb of {AdditionalFermentable}");
+                AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
             }
             Console.WriteLine($"Recipe size: {BatchSize} gallons");
-            Console.WriteLine("-----------------------------------------------------------");
+            AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
             Console.WriteLine($"Yeast: {YeastType}");
-            Console.WriteLine("-----------------------------------------------------------");
+            AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
             Console.WriteLine($"BackSweetend: {BackSweetenedType}");
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Other Additions: {Additions}");
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"Additional notes: {Notes}");
+            AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
+            if (Additions == "" || Additions == "0")
+            {
+                Console.WriteLine($"Other additions: None");
+                AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
+            }
+            else
+            {
+                Console.WriteLine($"Other Additions: {Additions}");
+                AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
+            }
+
+            if (Notes == "")
+            {
+                Console.WriteLine($"Additional notes: None");
+            }
+            else
+            {
+                Console.WriteLine($"Additional notes: {Notes}");
+            }
+            
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
 
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
+            Console.Clear();
         }
     }
 

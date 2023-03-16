@@ -105,3 +105,4 @@ C:\Users\jody_\source\repos\HomeBrewApp\HomeBrewTest\obj\Debug\net5.0\HomeBrewTe
 C:\Users\jody_\source\repos\HomeBrewApp\HomeBrewTest\obj\Debug\net5.0\ref\HomeBrewTest.dll
 C:\Users\jody_\source\repos\HomeBrewApp\HomeBrewTest\obj\Debug\net5.0\HomeBrewTest.pdb
 C:\Users\jody_\source\repos\HomeBrewApp\HomeBrewTest\obj\Debug\net5.0\HomeBrewTest.genruntimeconfig.cache
+C:\Users\jody_\source\repos\HomeBrewApp\HomeBrewTest\bin\Debug\net5.0\Spectre.Console.dll

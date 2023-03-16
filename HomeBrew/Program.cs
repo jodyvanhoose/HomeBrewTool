@@ -6,9 +6,10 @@ namespace HomeBrew
     {
         static void Main(string[] args)
         {
+            Console.Title = "HomeBrew Tool";
             // Program start
-
-            TitleScreen.Title();
+            Console.Clear();
+            TitleScreen.Title(); 
             Menu.MainMenu();
 
             // Variables for selecting menu options
@@ -69,13 +70,18 @@ namespace HomeBrew
                     Menu.BrixConverterMenu();
 
                     double BrixReading = Convert.ToDouble(Console.ReadLine());
+
                     var brixConversion = new BrixConverter();
+
                     string BrixToGravityReading = brixConversion.BrixToSpecficGravity(BrixReading).ToString("0.000");
+
                     Console.WriteLine($"Your Brix reading of {BrixReading} is {BrixToGravityReading} specfic gravity.");
                     Console.WriteLine("Press enter to continue");
                     Console.ReadLine();
 
                 }
+
+                // hb tool for getting specfic gravity from malt extract
                 else if (UserInput == GravitySelect)
                 {
                     Console.Clear();
@@ -83,12 +89,13 @@ namespace HomeBrew
                     HomeBrewTool.GetSpecficGravityFromExtract();
                 }
 
-                // ABC calculator
+                // ABV calculator
                 else if (UserInput == AbvSelect)
                 {
                     Console.Clear();
                     TitleScreen.Title();
                     Menu.AbvMenu();
+
                     string AbvUserInput = Console.ReadLine().ToLower();
                     string SpecficGravityMeasurement = "1";
                     string BrixMeasurement = "2";
@@ -111,6 +118,7 @@ namespace HomeBrew
                             Console.Clear();
                             TitleScreen.Title();
                             Menu.AbvMenu();
+
                             Console.WriteLine(" Sorry invalid input");
                             Console.Write("Your input: ");
                             AbvUserInput = Console.ReadLine().ToLower();
