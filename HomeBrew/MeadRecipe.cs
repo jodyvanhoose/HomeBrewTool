@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,11 @@ namespace HomeBrew
             Console.Clear();
             TitleScreen.Title();
 
-            Console.Write("Enter mead style: ");
+            Console.Write("Enter recipe name: ");
             myMead.RecipeName = Console.ReadLine();
+
+            Console.Write("Enter mead style: ");
+            myMead.RecipeStyle = Console.ReadLine();
 
             // Adding honey type & weight
             Console.Write("Enter Type of honey: ");
@@ -76,6 +80,15 @@ namespace HomeBrew
             // Adding additional notes
             Console.Write("Enter any additional notes: ");
             myMead.Notes = Console.ReadLine();
+
+            Console.WriteLine("Would you like to save this recipe to file?");
+            Console.Write("Enter y for yes...n for no: ");
+            string input = Console.ReadLine().ToLower();
+            if (input == "y")
+            {
+                MeadRecipeWriteToFile(myMead);
+            }
+            
         }
 
         // Displaying Mead Recipe
@@ -83,7 +96,7 @@ namespace HomeBrew
         {
             Console.Clear();
 
-            Console.WriteLine($"Mead style: {RecipeName}");
+            Console.WriteLine($"Mead style: {RecipeStyle}");
             AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
             Console.WriteLine($"Honey type: {HoneyPounds}lb of {HoneyType}");
             AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
@@ -125,6 +138,62 @@ namespace HomeBrew
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
             Console.Clear();
+        }
+
+        public static void MeadRecipeWriteToFile(MeadRecipe myMead)
+        {
+            var recipeDirPath = Path.Combine(Directory.GetCurrentDirectory(), "RecipeFolder");
+            Directory.CreateDirectory(recipeDirPath);
+
+            // Creating text file
+            var sw = new StreamWriter("RecipeFolder/mead_recipes.txt", true);
+
+            // Writing to text file
+            sw.WriteLine("Mead:");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine($"Recipe Name: {myMead.RecipeName}");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine($"Mead Style: {myMead.RecipeStyle}");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine($"Honey type: {myMead.HoneyPounds}lb of {myMead.HoneyType}");
+            sw.WriteLine("-----------------------------------------------------------");
+            if (myMead.HasAdditionalFermentable)
+            {
+                sw.WriteLine($"Additional fermentable: {myMead.AdditionalFermentableWeight}lb of {myMead.AdditionalFermentable}");
+                sw.WriteLine("-----------------------------------------------------------");
+            }
+            sw.WriteLine($"Batch size: {myMead.BatchSize} gallons");
+            sw.WriteLine("-----------------------------------------------------------");
+            
+            sw.WriteLine($"Yeast: {myMead.YeastType}");
+            sw.WriteLine("-----------------------------------------------------------");
+
+            sw.WriteLine($"BackSweetend: {myMead.BackSweetenedType}");
+
+            if (myMead.Additions == "" || myMead.Additions == "0")
+            {
+                sw.WriteLine($"Other additions: None");
+                sw.WriteLine("-----------------------------------------------------------");
+            }
+            else
+            {
+                sw.WriteLine($"Other Additions: {myMead.Additions}");
+                sw.WriteLine("-----------------------------------------------------------");
+            }
+
+            sw.WriteLine($"Additional notes: {myMead.Notes}");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine();
+            sw.WriteLine();
+            sw.WriteLine();
+            sw.WriteLine("===========================================================");
+            sw.WriteLine();
+            sw.WriteLine();
+            sw.WriteLine();
+
+
+
+            sw.Close();
         }
     }
 

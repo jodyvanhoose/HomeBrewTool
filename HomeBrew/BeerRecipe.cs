@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +31,12 @@ namespace HomeBrew
         {
             Console.Clear();
             TitleScreen.Title();
+
+            Console.Write("Enter recipe name: ");
+            myBeer.RecipeName = Console.ReadLine();
             
             Console.Write("Enter beer style: ");
-            myBeer.RecipeName = Console.ReadLine();
+            myBeer.RecipeStyle = Console.ReadLine();
 
             //Checking for if extract recipe
             Console.WriteLine("Is this an Extract Recipe?");
@@ -131,6 +135,14 @@ namespace HomeBrew
             Console.Write("Enter any additional notes: ");
             myBeer.Notes = Console.ReadLine();
 
+            Console.WriteLine("Would you like to save this recipe to file?");
+            Console.Write("Enter y for yes...n for no: ");
+            input = Console.ReadLine().ToLower();
+            if(input == "y")
+            {
+                BeerRecipeWriteToFile(myBeer);
+            }
+
         }
 
 
@@ -140,7 +152,7 @@ namespace HomeBrew
 
             Console.Clear();
 
-            Console.WriteLine($"Beer Style: {RecipeName}");
+            Console.WriteLine($"Beer Style: {RecipeStyle}");
             AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
             Console.WriteLine($"Base malt: {BaseMaltWeight}lb of {BaseMalt}");
             AnsiConsole.MarkupLine("[olive]-----------------------------------------------------------[/]");
@@ -186,6 +198,73 @@ namespace HomeBrew
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
             Console.Clear();
+        }
+
+        public static void BeerRecipeWriteToFile(BeerRecipe myBeer)
+        {
+            var recipeDirPath = Path.Combine(Directory.GetCurrentDirectory(), "RecipeFolder");
+            Directory.CreateDirectory(recipeDirPath);
+
+            //var recipeFilePath = Path.Combine(recipeDirPath, "Recipes.txt");
+
+            //var fileStream = File.Create(recipeFilePath);
+
+            var sw = new StreamWriter("RecipeFolder/beer_recipes.txt", true);
+            
+            sw.WriteLine($"Recipe Name: {myBeer.RecipeName}");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine($"Beer Style: {myBeer.RecipeStyle}");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine($"Base malt: {myBeer.BaseMaltWeight}lb of {myBeer.BaseMalt}");
+            sw.WriteLine("-----------------------------------------------------------");
+            if (myBeer.HasAdditionalMalt)
+            {
+                sw.WriteLine($"Additional malt: {myBeer.AdditionalMaltWeight}lb of {myBeer.AdditionalMalt}");
+                sw.WriteLine("-----------------------------------------------------------");
+            }
+            if (myBeer.HasAdditionalFermentable)
+            {
+                sw.WriteLine($"Additional fermentable: {myBeer.AdditionalFermentableWeight}lb of {myBeer.AdditionalFermentable}");
+                sw.WriteLine("-----------------------------------------------------------");
+            }
+            if (myBeer.HasSpecialtyGrain)
+            {
+                sw.WriteLine($"Specialty grain: {myBeer.SpecialtyGrainWeight}oz of {myBeer.SpecialtyGrain}");
+                sw.WriteLine("-----------------------------------------------------------");
+            }
+            sw.WriteLine($"Batch size: {myBeer.BatchSize} gallons     Boil Time: {myBeer.BoilTime} minutes");
+            sw.WriteLine("-----------------------------------------------------------");
+            if (myBeer.HopAdditions > 0)
+            {
+                for (int i = 0; i < myBeer.HopType.Count; i++)
+                {
+                    if (myBeer.HopTime[i] != 0)
+                    {
+                        sw.WriteLine($"Hop Addition: {myBeer.HopWeight[i]} oz of {myBeer.HopType[i]} for {myBeer.HopTime[i]} minutes");
+                        sw.WriteLine("-----------------------------------------------------------");
+                    }
+                    else
+                    {
+                        sw.WriteLine($"Hop Addition: {myBeer.HopWeight[i]} oz of {myBeer.HopType[i]} at flame out");
+                        sw.WriteLine("-----------------------------------------------------------");
+                    }
+                }
+            }
+            sw.WriteLine($"Yeast: {myBeer.YeastType}");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine($"Additional notes: {myBeer.Notes}");
+            sw.WriteLine("-----------------------------------------------------------");
+            sw.WriteLine();
+            sw.WriteLine();
+            sw.WriteLine();
+            sw.WriteLine("===========================================================");
+            sw.WriteLine();
+            sw.WriteLine();
+            sw.WriteLine();
+
+
+
+            sw.Close();
         }
     }
 }
