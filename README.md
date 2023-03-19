@@ -45,7 +45,7 @@ ___
 * Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program
 * Create 3 or more unit tests for your application
 * Build a conversion tool that converts user input to another type and displays it (ex: converts Brix to Specfic Gravity)
-
+* Save data to a .txt file
 
 
 
