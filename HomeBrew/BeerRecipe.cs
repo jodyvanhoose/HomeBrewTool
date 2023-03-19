@@ -202,15 +202,14 @@ namespace HomeBrew
 
         public static void BeerRecipeWriteToFile(BeerRecipe myBeer)
         {
+            // Creating Recipe folder
             var recipeDirPath = Path.Combine(Directory.GetCurrentDirectory(), "RecipeFolder");
             Directory.CreateDirectory(recipeDirPath);
 
-            //var recipeFilePath = Path.Combine(recipeDirPath, "Recipes.txt");
-
-            //var fileStream = File.Create(recipeFilePath);
-
+            // Creating text file
             var sw = new StreamWriter("RecipeFolder/beer_recipes.txt", true);
             
+            // Write to text file
             sw.WriteLine($"Recipe Name: {myBeer.RecipeName}");
             sw.WriteLine("-----------------------------------------------------------");
             sw.WriteLine($"Beer Style: {myBeer.RecipeStyle}");

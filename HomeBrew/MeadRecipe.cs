@@ -142,6 +142,7 @@ namespace HomeBrew
 
         public static void MeadRecipeWriteToFile(MeadRecipe myMead)
         {
+            // Creating Recipe folder
             var recipeDirPath = Path.Combine(Directory.GetCurrentDirectory(), "RecipeFolder");
             Directory.CreateDirectory(recipeDirPath);
 
