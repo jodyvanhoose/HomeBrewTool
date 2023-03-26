@@ -17,6 +17,7 @@ The homebrew tool is a C# console application that can help build home brew reci
 * Clone Repository: Using the green 'Code' button above clone the repo to your local machine
 * Open the file HomeBrewApp.sln in Visual Studio (or your preferred IDE)
 * Press F5 or Run Debug to begin application
+* Recipes will be saved to Documents/RecipeFolder
 ___
 ### Key Features
 * Easy to navigate UI
@@ -46,6 +47,7 @@ ___
 * Create 3 or more unit tests for your application
 * Build a conversion tool that converts user input to another type and displays it (ex: converts Brix to Specfic Gravity)
 * Save data to a .txt file
+* Loading animation
 
 
 
