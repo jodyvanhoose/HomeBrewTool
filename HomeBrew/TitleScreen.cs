@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Spectre.Console;
 
@@ -26,7 +27,40 @@ namespace HomeBrew
             Console.WriteLine();
         }
 
+        public static void LoadingAnimiation()
+        {
+            // animation start
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Clear();
+                Title();
+                Console.WriteLine("Loading...  |");
+                Thread.Sleep(300);
+                
 
-        
+                Console.Clear();
+                Title();
+                Console.WriteLine("Loading...  /");
+                Thread.Sleep(300);
+                
+
+                Console.Clear();
+                Title();
+                Console.WriteLine("Loading...  -");
+                Thread.Sleep(300);
+
+
+                Console.Clear();
+                Title();
+                Console.WriteLine(@"Loading...  \");
+                Thread.Sleep(300);
+                
+
+            }
+
+
+            // animation end
+        }
+
     }
 }

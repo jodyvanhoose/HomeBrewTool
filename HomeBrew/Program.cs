@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace HomeBrew
 {
@@ -74,6 +75,9 @@ namespace HomeBrew
                     var brixConversion = new BrixConverter();
 
                     string BrixToGravityReading = brixConversion.BrixToSpecficGravity(BrixReading).ToString("0.000");
+
+                    TitleScreen.LoadingAnimiation();
+                    TitleScreen.Title();
 
                     Console.WriteLine($"Your Brix reading of {BrixReading} is {BrixToGravityReading} specfic gravity.");
                     Console.WriteLine("Press enter to continue");

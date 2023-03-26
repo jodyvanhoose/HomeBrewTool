@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Spectre.Console;
 
@@ -149,6 +150,7 @@ namespace HomeBrew
         // Displays beer recipe 
         public void DisplayBeerRecipe(BeerRecipe myBeer)
         {
+            TitleScreen.LoadingAnimiation();
 
             Console.Clear();
 
@@ -202,13 +204,15 @@ namespace HomeBrew
 
         public static void BeerRecipeWriteToFile(BeerRecipe myBeer)
         {
+
             // Creating Recipe folder
-            var recipeDirPath = Path.Combine(Directory.GetCurrentDirectory(), "RecipeFolder");
-            Directory.CreateDirectory(recipeDirPath);
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RecipeFolder");
+            Directory.CreateDirectory(folderPath);
 
             // Creating text file
-            var sw = new StreamWriter("RecipeFolder/beer_recipes.txt", true);
-            
+            string filePath = Path.Combine(folderPath, "beer_recipes.txt");
+            var sw = new StreamWriter(filePath, true);
+
             // Write to text file
             sw.WriteLine($"Recipe Name: {myBeer.RecipeName}");
             sw.WriteLine("-----------------------------------------------------------");

@@ -94,6 +94,8 @@ namespace HomeBrew
         // Displaying Mead Recipe
         public void DisplayMeadRecipe(MeadRecipe myMead)
         {
+            TitleScreen.LoadingAnimiation();
+
             Console.Clear();
 
             Console.WriteLine($"Mead style: {RecipeStyle}");
@@ -142,15 +144,17 @@ namespace HomeBrew
 
         public static void MeadRecipeWriteToFile(MeadRecipe myMead)
         {
-            // Creating Recipe folder
-            var recipeDirPath = Path.Combine(Directory.GetCurrentDirectory(), "RecipeFolder");
-            Directory.CreateDirectory(recipeDirPath);
+
+            // Creating Recipe Folder
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RecipeFolder");
+            Directory.CreateDirectory(folderPath);
 
             // Creating text file
-            var sw = new StreamWriter("RecipeFolder/mead_recipes.txt", true);
+            string filePath = Path.Combine(folderPath, "mead_recipes.txt");
+            var sw = new StreamWriter(filePath, true);
 
             // Writing to text file
-            sw.WriteLine("Mead:");
+            sw.WriteLine("Mead Name:");
             sw.WriteLine("-----------------------------------------------------------");
             sw.WriteLine($"Recipe Name: {myMead.RecipeName}");
             sw.WriteLine("-----------------------------------------------------------");
