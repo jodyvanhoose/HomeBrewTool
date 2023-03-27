@@ -8,6 +8,12 @@ namespace HomeBrew
         static void Main(string[] args)
         {
             Console.Title = "HomeBrew Tool";
+
+            //TitleScreen.MugAnimation();
+
+            //Console.ReadLine();
+
+
             // Program start
             Console.Clear();
             TitleScreen.Title(); 
@@ -76,7 +82,7 @@ namespace HomeBrew
 
                     string BrixToGravityReading = brixConversion.BrixToSpecficGravity(BrixReading).ToString("0.000");
 
-                    TitleScreen.LoadingAnimiation();
+                    TitleScreen.MugLoadingAnimation();
                     TitleScreen.Title();
 
                     Console.WriteLine($"Your Brix reading of {BrixReading} is {BrixToGravityReading} specfic gravity.");

@@ -36,7 +36,7 @@ namespace HomeBrew
 
             string ABV = abvCalc.CalculateABV(OriginalGravity, FinalGravity).ToString("0.0");
 
-            TitleScreen.LoadingAnimiation();
+            TitleScreen.MugLoadingAnimation();
             TitleScreen.Title();
 
             Console.WriteLine($"Your brew's approximate alcohol: {ABV}%");
@@ -60,7 +60,7 @@ namespace HomeBrew
 
             string ABV = abvCalc.CalculateABV(OriginalGravity, FinalGravity).ToString("0.0");
 
-            TitleScreen.LoadingAnimiation();
+            TitleScreen.MugLoadingAnimation();
             TitleScreen.Title();
 
             Console.WriteLine($"Your brew's approximate alcohol: {ABV}%");
@@ -107,7 +107,7 @@ namespace HomeBrew
             var hbTool = new HomeBrewTool();
             SpecficGravity = hbTool.SpecficGravityFromExtractFormula(LmePounds, DmePounds, Gallons).ToString("0.000");
 
-            TitleScreen.LoadingAnimiation();
+            TitleScreen.MugLoadingAnimation();
             TitleScreen.Title();
 
             Console.WriteLine($"Your estimated specfic gravity is {SpecficGravity}");

@@ -94,7 +94,7 @@ namespace HomeBrew
         // Displaying Mead Recipe
         public void DisplayMeadRecipe(MeadRecipe myMead)
         {
-            TitleScreen.LoadingAnimiation();
+            TitleScreen.MugLoadingAnimation();
 
             Console.Clear();
 

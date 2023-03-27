@@ -150,7 +150,7 @@ namespace HomeBrew
         // Displays beer recipe 
         public void DisplayBeerRecipe(BeerRecipe myBeer)
         {
-            TitleScreen.LoadingAnimiation();
+            TitleScreen.MugLoadingAnimation();
 
             Console.Clear();
 

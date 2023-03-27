@@ -62,5 +62,157 @@ namespace HomeBrew
             // animation end
         }
 
+
+        public static void MugLoadingAnimation()
+        {
+           
+            // animation loop
+            for (var i = 0; i < 3; i++)
+            {
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                AnsiConsole.MarkupLine("[gray]    *      ***[/]");
+                AnsiConsole.MarkupLine("[gray]    *      *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *      *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *      *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *      ***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading");
+                Thread.Sleep(300);
+
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                AnsiConsole.MarkupLine("[gray]    *      ***[/]");
+                AnsiConsole.MarkupLine("[gray]    *      *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *      *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]**[/]    *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading");
+                Thread.Sleep(300);
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                AnsiConsole.MarkupLine("[gray]    *      ***[/]");
+                AnsiConsole.MarkupLine("[gray]    *      *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *    [olive]**[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading.");
+                Thread.Sleep(300);
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                AnsiConsole.MarkupLine("[gray]    *      ***[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]**[/]    *  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading..");
+                Thread.Sleep(300);
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                AnsiConsole.MarkupLine("[gray]    *    [olive]**[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading...");
+                Thread.Sleep(300);
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]    *[white]**[/]*****[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading..");
+                Thread.Sleep(300);
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]     [white]******[/][/]");
+                AnsiConsole.MarkupLine("[gray]    [white]********[/][/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading.");
+                Thread.Sleep(300);
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]     [white]******[/][/]");
+                AnsiConsole.MarkupLine("[gray]    [white]********[/][/]");
+                AnsiConsole.MarkupLine("[gray]   [white]*[/]*[olive]****[/][white]**[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Console.WriteLine("    Loading");
+                Thread.Sleep(300);
+
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                AnsiConsole.MarkupLine("[gray]     [white]******[/][/]");
+                AnsiConsole.MarkupLine("[gray]    [white]********[/][/]");
+                AnsiConsole.MarkupLine("[gray]   [white]*[/]*[olive]****[/][white]**[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]   [white]*[/]*[olive]*****[white]*[/][/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]*  *[/]");
+                AnsiConsole.MarkupLine("[gray]    *[olive]******[/]***[/]");
+                AnsiConsole.MarkupLine("[gray]    ********[/]");
+                Console.WriteLine();
+                Thread.Sleep(300);
+            }
+        }
     }
 }
