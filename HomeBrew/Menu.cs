@@ -64,7 +64,8 @@ namespace HomeBrew
             Console.WriteLine("Welcome to the homebrew tools.");
             Console.WriteLine("Brix to Specfic Gravity Converter");
             AnsiConsole.MarkupLine("[olive]---------------------------------[/]");
-            Console.Write("Enter your Brix reading: ");
+            Console.WriteLine("Enter your Brix reading: ");
+            Console.WriteLine("(Ex: 12)");
         }
     }
 }

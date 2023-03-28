@@ -21,14 +21,16 @@ namespace HomeBrew
             Console.Clear();
             TitleScreen.Title();
 
-            Console.Write("Enter your inital Brix reading: ");
+            Console.WriteLine("Enter your inital Brix reading: ");
+            Console.WriteLine("(Ex: 14)");
             double InitalBrixReading = Convert.ToDouble(Console.ReadLine());
 
             var firstBrixReading = new BrixConverter();
 
             double OriginalGravity = firstBrixReading.BrixToSpecficGravity(InitalBrixReading);
 
-            Console.Write("Enter your Final Brix reading: ");
+            Console.WriteLine("Enter your Final Brix reading: ");
+            Console.WriteLine("(Ex: 4)");
             double FinalBrixReading = Convert.ToDouble(Console.ReadLine());
 
             double FinalGravity = firstBrixReading.BrixToSpecficGravity(FinalBrixReading);
@@ -50,10 +52,12 @@ namespace HomeBrew
             Console.Clear();
             TitleScreen.Title();
 
-            Console.Write("Enter your Original Gravity reading: ");
+            Console.WriteLine("Enter your Original Gravity reading: ");
+            Console.WriteLine("(Ex: 1.050)");
             double OriginalGravity = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter your Final Gravity reading: ");
+            Console.WriteLine("Enter your Final Gravity reading: ");
+            Console.WriteLine("(Ex: 1.005)");
             double FinalGravity = Convert.ToDouble(Console.ReadLine());
 
             var abvCalc = new HomeBrewTool();
@@ -92,15 +96,18 @@ namespace HomeBrew
             int Gallons;
             string SpecficGravity;
 
-            Console.Write("Enter liquid malt extract weight in pounds: ");
+            Console.WriteLine("Enter liquid malt extract weight in pounds: ");
+            Console.WriteLine("(Ex: 3.3)");
             string input = Console.ReadLine();
             LmePounds = decimal.TryParse(input, out decimal output) ? output : 0;
 
-            Console.Write("Enter dried malt extract weight in pounds: ");
+            Console.WriteLine("Enter dried malt extract weight in pounds: ");
+            Console.WriteLine("(Ex: 2)");
             input = Console.ReadLine();
             DmePounds = decimal.TryParse(input, out output) ? output : 0;
 
-            Console.Write("Enter size of brew in gallons: ");
+            Console.WriteLine("Enter size of brew in gallons: ");
+            Console.WriteLine("(Ex: 5)");
             input = Console.ReadLine();
             Gallons = int.TryParse(input, out int intOutput) ? intOutput : 0;
 

@@ -11,13 +11,19 @@ The homebrew tool is a C# console application that can help build home brew reci
 ### Screenshots
 
 ![](./images/homebrew_title_screenshot.png)
-![](./images/homebrew_recipe_display_screenshot.png)
+
 
 ### Instructions
 * Clone Repository: Using the green 'Code' button above clone the repo to your local machine
 * Open the file HomeBrewApp.sln in Visual Studio (or your preferred IDE)
 * Press F5 or Run Debug to begin application
 * Recipes will be saved to Documents/RecipeFolder
+* Example recordings for recipe building for non homebrewers needing to test:
+  * Beer Recipe:
+    ![](./images/homebrew_recipe_display_screenshot.png)
+
+  * Mead Recipe:
+    ![](./images/homebrew_mead_reicpe_display.png)
 ___
 ### Key Features
 * Easy to navigate UI

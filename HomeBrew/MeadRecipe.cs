@@ -81,14 +81,6 @@ namespace HomeBrew
             Console.Write("Enter any additional notes: ");
             myMead.Notes = Console.ReadLine();
 
-            Console.WriteLine("Would you like to save this recipe to file?");
-            Console.Write("Enter y for yes...n for no: ");
-            string input = Console.ReadLine().ToLower();
-            if (input == "y")
-            {
-                MeadRecipeWriteToFile(myMead);
-            }
-            
         }
 
         // Displaying Mead Recipe
@@ -137,9 +129,28 @@ namespace HomeBrew
             Console.WriteLine();
             Console.WriteLine();
 
-            Console.WriteLine("Press enter to continue");
-            Console.ReadLine();
-            Console.Clear();
+            Console.WriteLine("Would you like to save this recipe to file?");
+            Console.Write("Enter y for yes...n for no: ");
+            string input = Console.ReadLine().ToLower();
+            if (input == "y")
+            {
+                MeadRecipeWriteToFile(myMead);
+                Console.Clear();
+
+                TitleScreen.Title();
+
+                Console.WriteLine("Saved!");
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+            }
         }
 
         public static void MeadRecipeWriteToFile(MeadRecipe myMead)
@@ -174,6 +185,7 @@ namespace HomeBrew
             sw.WriteLine("-----------------------------------------------------------");
 
             sw.WriteLine($"BackSweetend: {myMead.BackSweetenedType}");
+            sw.WriteLine("-----------------------------------------------------------");
 
             if (myMead.Additions == "" || myMead.Additions == "0")
             {

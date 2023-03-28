@@ -136,14 +136,6 @@ namespace HomeBrew
             Console.Write("Enter any additional notes: ");
             myBeer.Notes = Console.ReadLine();
 
-            Console.WriteLine("Would you like to save this recipe to file?");
-            Console.Write("Enter y for yes...n for no: ");
-            input = Console.ReadLine().ToLower();
-            if(input == "y")
-            {
-                BeerRecipeWriteToFile(myBeer);
-            }
-
         }
 
 
@@ -197,9 +189,29 @@ namespace HomeBrew
             Console.WriteLine($"Additional notes: {Notes}");
             Console.WriteLine();
 
-            Console.WriteLine("Press enter to continue");
-            Console.ReadLine();
-            Console.Clear();
+            Console.WriteLine("Would you like to save this recipe to file?");
+            Console.Write("Enter y for yes...n for no: ");
+            string input = Console.ReadLine().ToLower();
+            if (input == "y")
+            {
+                BeerRecipeWriteToFile(myBeer);
+                Console.Clear();
+
+                TitleScreen.Title();
+
+                Console.WriteLine("Saved!");
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+            }
+            
         }
 
         public static void BeerRecipeWriteToFile(BeerRecipe myBeer)
